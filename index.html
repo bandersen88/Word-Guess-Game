@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title>Word Guess Game</title>
+        <link href="assets/css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
+    </head>
+
+    <body>
+
+        <h1>Word Guess Game</h1>
+        <h2>Press any key to get started</h2>
+
+        <p>The key that was last pressed</p>
+        <p id="pressedKey"></p>
+
+        <p>The smartest man in the universe</p>
+        <p id="guessWord"></p>
+
+        <ul id="guessWordCharList">
+
+        </ul>
+
+        <ul id="keysPressed">
+        </ul>
+
+    </body>
+</html>
+<!-- What do I need to be able to do here...
+    - If a key is pressed, compare that key to the array
+    of all previous keys press.
+        If it's been pressed before, do nothing
+        If it hasn't been pressed before, compare it to the
+        array of characters in the guess word.
+        If it is one of the words in the guess word, show it
+        on the screen in the correct spot.
+-->
