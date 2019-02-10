@@ -113,18 +113,24 @@ p {
     font-family: 'Bubblegum Sans', cursive;
   }
 
+  .guessed {
+      border: 3px solid rgb(95, 95, 95);
+      color: rgb(116, 116, 116);
+      text-shadow: 0 0 10px rgb(46, 46, 46);
+  }
+
   .blank {
     border-bottom: 4px solid white;
     /* border-radius: 10px; */
-    margin: 50px 0 10px 10px;
-    font-size: 72px;
-    padding: 0px;
+    margin: 25px 0 10px 10px;
+    font-size: 100px;
+    padding-bottom: 25px;
     transition: all .07s ease;
     width: 80px;
     height: 70px;
     text-align: center;
     color: white;
-    text-shadow: 0 0 10px white;
+    text-shadow: 0 0 2px white;
     font-family: 'Bubblegum Sans', cursive;
   }
 

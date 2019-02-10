@@ -4,7 +4,8 @@ var game = {
     gameStarted: false,
     score: 0,
     wordGuessed: false,
-    guessWordList: ["Gazorpazorp", "Rick", "Morty"],
+    guessWordList: ["Rick", "FlippyNips", "Gazorpazorp"],
+    hintList: ["The smartest man in the universe", "The King of pluto", "Planet where the most aggressive creatures in the universe live"],
     guessWordArray: [],
     alphabet: [
         ["a",0],
@@ -70,6 +71,8 @@ var game = {
             this.createCharList(i);
         }
 
+        this.populateHint();
+
         this.guessWordIndex++;
     },
 
@@ -82,6 +85,7 @@ var game = {
         }
 
         this.logCharacterUsed(x);
+        this.setAlaphabetClass();
         this.checkWord();
 
     },
@@ -111,6 +115,32 @@ var game = {
 
     },
 
+    populateHint: function() {
+
+        document.getElementById("hint").innerHTML = this.hintList[this.guessWordIndex];
+    },
+
+    setAlaphabetClass: function () {
+
+        for (i = 0; i < this.alphabet.length; i++) {
+            if(this.alphabet[i][1] === 1) {
+                var d = document.getElementById(this.alphabet[i][0]);
+                d.classList.add("guessed");
+            } else {
+                var d = document.getElementById(this.alphabet[i][0]);
+                d.classList.remove("guessed");
+            }
+        }
+
+    },
+
+    resetAlphabetArray: function() {
+
+        for(i = 0; i < this.alphabet.length; i ++) {
+            this.alphabet[i][1] = 0;
+        }
+    },
+
     finished: function() {
         alert("You have finished the game");
     }
@@ -121,7 +151,6 @@ var game = {
 document.onkeyup = function(event) {
 
     if (!game.gameStarted) {
-        alert("Guess the Word using the hint.");
         game.populateBlanks();   
         game.gameStarted = true; 
     } else if (game.wordGuessed === true) {
@@ -129,13 +158,15 @@ document.onkeyup = function(event) {
             game.finished();
         } else {
             game.populateBlanks();
+            game.resetAlphabetArray();
+            game.setAlaphabetClass();
             game.wordGuessed = false;
         }
     } else {
         var keyPress = event.key;
         game.checkCharacter(keyPress);
         if (game.wordGuessed) {
-            alert("You guessed the word.  Press any key to continue");
+            
         }
     }
 }
