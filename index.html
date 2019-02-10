@@ -4,12 +4,126 @@
         <meta charset="UTF-8">
         <title>Word Guess Game</title>
         <link href="assets/css/style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans" rel="stylesheet">
         <script type="text/javascript" src="assets/javascript/game.js"></script>
     </head>
 
     <body>
 
-        <h1>Word Guess Game</h1>
+        <div class="grid-container">
+
+            <div class="grid-item item-header-spacing">             
+            </div>
+            <div class="grid-item item-header">
+                <h1>Word Guess</h1>
+                <p><small>Brought to you by the makers of Roy</small></p>
+            </div>
+            <div class="grid-item item-hint">
+                <h2>Hint:</h2>
+                <p class="hint-paragraph">The smartest man in the Universe.</p>
+            </div>
+            <div class="grid-item item-center-space">
+            </div>
+            <div class="grid-item item-alphabet flex-container"> 
+                <div class="key">
+                    A
+                </div>
+                <div class="key">
+                    B
+                </div>
+                <div class="key">
+                    C
+                </div>
+                <div class="key">
+                    D
+                </div>
+                <div class="key">
+                    E
+                </div>
+                <div class="key">
+                    F
+                </div>
+                <div class="key">
+                    G
+                </div>
+                <div class="key">
+                    H
+                </div>
+                <div class="key">
+                    I
+                </div>
+                <div class="key">
+                    J
+                </div>
+                <div class="key">
+                    K
+                </div>
+                <div class="key">
+                    L
+                </div>
+                <div class="key">
+                    M
+                </div>
+                <div class="key">
+                    N
+                </div>
+                <div class="key">
+                    O
+                </div>
+                <div class="key">
+                    P
+                </div>
+                <div class="key">
+                    Q
+                </div>
+                <div class="key">
+                    R
+                </div>
+                <div class="key">
+                    S
+                </div>
+                <div class="key">
+                    T
+                </div>
+                <div class="key">
+                    U
+                </div>
+                <div class="key">
+                    V
+                </div>
+                <div class="key">
+                    W
+                </div>
+                <div class="key">
+                    X
+                </div>
+                <div class="key">
+                    Y
+                </div>
+                <div class="key">
+                    Z
+                </div>
+
+            </div>
+            <div id="guessWordBox" class="grid-item item-guessWord flex-container-guessWords">
+                <div class="blank">
+                    _
+                </div>
+                <div class="blank">
+                    _
+                </div>
+                <div class="blank">
+                    _
+                </div>
+                <div class="blank">
+                    _
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- <h1>Word Guess Game</h1>
         <h2>Press any key to get started</h2>
 
         <p>The key that was last pressed</p>
@@ -18,21 +132,16 @@
         <p>The smartest man in the universe</p>
         <p id="guessWord"></p>
 
-        <ul id="guessWordCharList">
+        <div id="wordShowcase">
+            a
+            <ul id="guessWordCharList">
+            </ul>
 
-        </ul>
+        <div>
 
-        <ul id="keysPressed">
-        </ul>
+
+        </div id="keysPressed">
+        </div>    -->
 
     </body>
 </html>
-<!-- What do I need to be able to do here...
-    - If a key is pressed, compare that key to the array
-    of all previous keys press.
-        If it's been pressed before, do nothing
-        If it hasn't been pressed before, compare it to the
-        array of characters in the guess word.
-        If it is one of the words in the guess word, show it
-        on the screen in the correct spot.
--->
