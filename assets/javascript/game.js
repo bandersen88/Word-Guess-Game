@@ -4,8 +4,8 @@ var game = {
     gameStarted: false,
     score: 0,
     wordGuessed: false,
-    guessWordList: ["Rick", "FlippyNips", "Gazorpazorp"],
-    hintList: ["The smartest man in the universe", "The King of pluto", "Planet where the most aggressive creatures in the universe live"],
+    guessWordList: ["Rick", "Snuffles", "Gazorpazorp"],
+    hintList: ["The smartest man in the universe", "Mortys Dog's name.", "Planet where the most aggressive creatures in the universe live"],
     guessWordArray: [],
     alphabet: [
         ["a",0],
