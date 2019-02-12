@@ -2,12 +2,13 @@ var game = {
     guessWordIndex: 0,
     gameIndex: 0,
     gameStarted: false,
+    gamefinished: false,
     wordGuessed: false,
     flurbos: 3000,
     guessWordList: ["Snowball", "Cromulan", "Gazorpazorp","Jessica", "Alphabetrium"],
     hintList: ["What does Morty's dog rename himself as after he gains super intelligence?", 
     "What type of creature is the talking head in the Shwifty episode?", "Name of the planet with the most aggressive creatures in the universe",
-    "Morty's high school crush", "Ice-t's home planet"],
+    "Morty's high school crush", "Ice-T's home planet"],
     guessWordArray: [],
     vowels: ["a","e","i","o","u"],
     alphabet: [
@@ -175,12 +176,16 @@ var game = {
             this.flurbos += 1500;
         }
 
-        document.getElementById("flurbosTotal").innerHTML = "Flurbos: " + this.flurbos;
+        if(!this.gamefinished) {
+            document.getElementById("flurbosTotal").innerHTML = "Flurbos: " + this.flurbos;
+        }
+        
 
     },
 
     finished: function() {
         document.getElementById("overlay").style.display = "block";
+        this.gamefinished = true;
     }
 
 };
