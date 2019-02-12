@@ -2,11 +2,14 @@ var game = {
     guessWordIndex: 0,
     gameIndex: 0,
     gameStarted: false,
-    score: 0,
     wordGuessed: false,
-    guessWordList: ["Rick", "Snuffles", "Gazorpazorp"],
-    hintList: ["The smartest man in the universe", "Mortys Dog's name.", "Planet where the most aggressive creatures in the universe live"],
+    flurbos: 3000,
+    guessWordList: ["Snowball", "Cromulan", "Gazorpazorp","Jessica", "Alphabetrium"],
+    hintList: ["What does Morty's dog rename himself as after he gains super intelligence?", 
+    "What type of creature is the talking head in the Shwifty episode?", "Name of the planet with the most aggressive creatures in the universe",
+    "Morty's high school crush", "Ice-t's home planet"],
     guessWordArray: [],
+    vowels: ["a","e","i","o","u"],
     alphabet: [
         ["a",0],
         ["b",0],
@@ -141,8 +144,43 @@ var game = {
         }
     },
 
+    pressEnterToContinue: function() {
+
+        document.getElementById("hint").innerHTML = "Press Enter to Continue";
+    },
+
+    proceedToGame: function() {
+        document.getElementById("overlay2").style.display = "none";
+    },
+
+    scoreUpdate: function(x,y) {
+
+        // alert("x = " + x +", y = " + y);
+        if (!y) {
+            for(i = 0; i < this.alphabet.length; i++) {
+                if( x == this.alphabet[i][0]) {
+                    if(this.alphabet[i][1] == 0) {
+
+                        this.flurbos -= 100;
+
+                        for(j = 0; j < this.vowels; j++) {
+                            if (this.alphabet[i][0] == this.vowels[j]) {
+                                this.flurbos -= 100;
+                            }
+                        }
+                    }
+                }
+            }
+        } else if (y) {
+            this.flurbos += 1500;
+        }
+
+        document.getElementById("flurbosTotal").innerHTML = "Flurbos: " + this.flurbos;
+
+    },
+
     finished: function() {
-        alert("You have finished the game");
+        document.getElementById("overlay").style.display = "block";
     }
 
 };
@@ -150,10 +188,14 @@ var game = {
 
 document.onkeyup = function(event) {
 
+    var keyPress = event.key;
+
     if (!game.gameStarted) {
         game.populateBlanks();   
-        game.gameStarted = true; 
+        game.gameStarted = true;
+        game.proceedToGame(); 
     } else if (game.wordGuessed === true) {
+        game.scoreUpdate(keyPress, game.wordGuessed);
         if (game.guessWordIndex == game.guessWordList.length) {
             game.finished();
         } else {
@@ -162,11 +204,13 @@ document.onkeyup = function(event) {
             game.setAlaphabetClass();
             game.wordGuessed = false;
         }
+        
     } else {
-        var keyPress = event.key;
+        game.scoreUpdate(keyPress, game.wordGuessed);
         game.checkCharacter(keyPress);
         if (game.wordGuessed) {
-            
+            game.pressEnterToContinue();
         }
+        
     }
 }
